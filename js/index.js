@@ -1,14 +1,11 @@
-var slidePosition = 0;
-SlideShow();
+const button = document.querySelector("[data-carousel-button]")
 
-function SlideShow() {
-  var i;
-  var slides = document.getElementsByClassName("Containers");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slidePosition++;
-  if (slidePosition > slides.length) {slidePosition = 1}
-  slides[slidePosition-1].style.display = "block";
-  setTimeout(SlideShow, 2000); // Change image every 2 seconds
-} 
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1
+        const slides = button.closest("data-carousel").querySelector("[data-slides]")
+
+        const activeSlide = slides.querySelector("[data-active]")
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+    })      
+});

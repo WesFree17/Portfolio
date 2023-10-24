@@ -24,25 +24,27 @@
         </div>
     </navbar>
 
-    <section id="top">
+    <section aria-label="newest photos">
 
-        <div class="slideshow">
+        <div class="carousel" data-carousel>
             
-            <button class="carousel-button prev">&#60;</button>
-            <button class="carousel-button next">&#62;</button>
+            <button class="carousel-button prev" data-carousel-button="prev">&#60;</button>
+            <button class="carousel-button next" data-carousel-button="next">&#62;</button>
 
-            <ul>
-                <li>
+            <ul data-slides>
+
+                <li class="slide" data-active>
                     <img src="../img/one.jpg" alt="number one" style="width: 100%;">
                 </li>
-                <li>
+
+                <li class="slide">
                     <img src="../img/two.jpg" alt="number two" style="width: 100%;">
                 </li>
-                <li>
+
+                <li class="slide">
                     <img src="../img/three.webp" alt="number three" style="width: 100%;">
                 </li>
-           
-
+        
             </ul>
 
         </div>
@@ -50,7 +52,7 @@
     </section>
 
 
-    <script src="../js/index.js"></script>
+    <script src="../js/index.js" defer></script>
 </body>
 
 </html>

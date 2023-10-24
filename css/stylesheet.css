@@ -38,6 +38,8 @@
     position: absolute;
     inset: 0;
     opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
 }
 
 .slide > img {
@@ -49,6 +51,8 @@
 
 .slide[data-active] {
     opacity: 1;
+    z-index: 1;
+    transition-delay: 0;
 }
 
 .carousel-button {

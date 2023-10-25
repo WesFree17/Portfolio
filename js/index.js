@@ -1,16 +1,37 @@
-const button = document.querySelector("[data-carousel-button]")
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const offset = button.dataset.carouselButton === "next" ? 1 : -1
-        const slides = button.closest("data-carousel").querySelector("[data-slides]")
-
-        const activeSlide = slides.querySelector("[data-active]")
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset
-        if (newIndex < 0) newIndex = slides.children.length - 1 
-        if (newIndex >= slides.children.length) newIndex = 0
-
-        slides.children[newIndex].dataset.active = true
-        delete activeslide.dataset.active
-    })      
+const slides = document.querySelectorAll(".slide");
+slides.forEach((slide, indx) => {
+  slide.style.transform = `translateX(${indx * 100}%)`;
 });
+
+let curSlide = 0;
+
+let maxSlide = slides.length - 1;
+
+const nextSlide = document.querySelector(".btn-next");
+
+nextSlide.addEventListener("click", function () {
+
+  if (curSlide === maxSlide) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
+const prevSlide = document.querySelector(".btn-prev");
+
+prevSlide.addEventListener("click", function () {
+
+ if (curSlide === 0) {
+    curSlide = maxSlide;
+ } else {
+    curSlide--;
+ }
+
+ slides[curSlide].style.transform = `translateX(${-curSlide * 100}%)`;
+});
+
+  slides.forEach((slide, indx) => {
+    slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+  });
+});
+
